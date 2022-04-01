@@ -113,6 +113,8 @@ def display_instances(image, boxes, masks, class_ids, class_names,
     # Generate random colors
     colors = colors or random_colors(N)
 
+    print(colors)
+
     # Show area outside image boundaries.
     height, width = image.shape[:2]
     ax.set_ylim(height + 10, -10)
@@ -169,9 +171,9 @@ def display_instances(image, boxes, masks, class_ids, class_names,
 
 def color_output(class_id):
   if(class_id==1):
-    color=(255, 0, 0)
+    color=0.5
   if(class_id==2):
-    color=(0, 255, 0)
+    color=0.8
   return color
 
 
