@@ -171,9 +171,9 @@ def display_instances(image, boxes, masks, class_ids, class_names,
 
 def color_output(class_id):
   if(class_id==1):
-    color=0.5
+    color=[0, 0, 1, 0.9]
   if(class_id==2):
-    color=0.8
+    color=[1, 0, 0, 0.9]
   return color
 
 
