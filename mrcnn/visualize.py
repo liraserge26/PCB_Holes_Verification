@@ -167,9 +167,11 @@ def display_instances(image, boxes, masks, class_ids, class_names,
             ax.add_patch(p)
 
     j=1
+    legend=[]
     for j in class_ids:
         patch = mpatches.Patch(color=colors[j], label=class_names[j])
-        ax.legend(handles=[patch])
+        legend.append(patch)
+    ax.legend(handles=legend)
     ax.imshow(masked_image.astype(np.uint8))
     if auto_show:
         plt.show()
