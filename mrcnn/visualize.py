@@ -166,7 +166,7 @@ def display_instances(image, boxes, masks, class_ids, class_names,
             p = Polygon(verts, facecolor="none", edgecolor=color)
             ax.add_patch(p)
 
-    j=1
+    j=2
     legend=[]
     for j in range(len(class_names)):
         patch = mpatches.Patch(color=colors[j], label=class_names[j])
