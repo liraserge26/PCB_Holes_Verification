@@ -168,7 +168,7 @@ def display_instances(image, boxes, masks, class_ids, class_names,
 
     j=1
     legend=[]
-    for j in class_names:
+    for j in range(len(class_names)):
         patch = mpatches.Patch(color=colors[j], label=class_names[j])
         legend.append(patch)
     ax.legend(handles=legend)
