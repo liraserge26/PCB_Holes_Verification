@@ -111,7 +111,7 @@ def display_instances(image, boxes, masks, class_ids, class_names,
         auto_show = True
 
     # Generate random colors
-    colors = colors or random_colors(N)
+    colors = colors or random_colors(len(class_names))
 
     print(colors)
 
@@ -124,7 +124,7 @@ def display_instances(image, boxes, masks, class_ids, class_names,
 
     masked_image = image.astype(np.uint32).copy()
     for i in range(N):
-        color = color_output(class_ids[i])
+        color = colors(class_ids[i])
 
         # Bounding box
         if not np.any(boxes[i]):
@@ -145,8 +145,8 @@ def display_instances(image, boxes, masks, class_ids, class_names,
             caption = "{} {:.3f}".format(label, score) if score else label
         else:
             caption = captions[i]
-        ax.text(x1, y1 + 8, caption,
-                color='w', size=11, backgroundcolor="none")
+        #ax.text(x1, y1 + 8, caption,
+                #color='w', size=11, backgroundcolor="none")
 
         # Mask
         mask = masks[:, :, i]
@@ -165,17 +165,12 @@ def display_instances(image, boxes, masks, class_ids, class_names,
             p = Polygon(verts, facecolor="none", edgecolor=color)
             ax.add_patch(p)
     ax.imshow(masked_image.astype(np.uint8))
+    j=1
+    for j in class_ids:
+    	patch = mpatches.Patch(color=colors[j], label=class_names[j])
+        ax.legend(handles=[patch]
     if auto_show:
         plt.show()
-
-
-def color_output(class_id):
-  if(class_id==1):
-    color=[0, 0, 1, 0.9]
-  if(class_id==2):
-    color=[1, 0, 0, 0.9]
-  return color
-
 
 def display_differences(image,
                         gt_box, gt_class_id, gt_mask,
