@@ -16,6 +16,7 @@ import colorsys
 import numpy as np
 from skimage.measure import find_contours
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 from matplotlib import patches,  lines
 from matplotlib.patches import Polygon
 import IPython.display
@@ -168,7 +169,7 @@ def display_instances(image, boxes, masks, class_ids, class_names,
     j=1
     for j in class_ids:
     	patch = mpatches.Patch(color=colors[j], label=class_names[j])
-        ax.legend(handles=[patch]
+        ax.legend(handles=[patch])
     if auto_show:
         plt.show()
 
