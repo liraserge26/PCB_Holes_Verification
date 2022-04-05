@@ -165,11 +165,12 @@ def display_instances(image, boxes, masks, class_ids, class_names,
             verts = np.fliplr(verts) - 1
             p = Polygon(verts, facecolor="none", edgecolor=color)
             ax.add_patch(p)
-    ax.imshow(masked_image.astype(np.uint8))
+
     j=1
     for j in class_ids:
-    	patch = mpatches.Patch(color=colors[j], label=class_names[j])
+        patch = mpatches.Patch(color=colors[j], label=class_names[j])
         ax.legend(handles=[patch])
+    ax.imshow(masked_image.astype(np.uint8))
     if auto_show:
         plt.show()
 
