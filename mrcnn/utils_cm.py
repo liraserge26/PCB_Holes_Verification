@@ -308,7 +308,7 @@ def pretty_plot_confusion_matrix(df_cm, annot=True, cmap="Oranges", fmt='.2f', f
     plt.show()
 #
 
-def plot_confusion_matrix_from_data(y_test, predictions, columns=None, annot=True, cmap="Oranges",
+def plot_confusion_matrix_from_data(y_test, predictions, class_names, columns=None, annot=True, cmap="Oranges",
       fmt='.2f', fz=11, lw=0.5, cbar=False, figsize=[36,36], show_null_values=0, pred_val_axis='lin'):
     """
         plot confusion matrix function with y_test (actual values) and predictions (predic),
@@ -318,7 +318,8 @@ def plot_confusion_matrix_from_data(y_test, predictions, columns=None, annot=Tru
 
     #data
     if(not columns):
-        columns = ['class %s' %(i) for i in list(ascii_uppercase)[0:max(len(np.unique(y_test)),len(np.unique(predictions)))]]
+        #columns = ['class %s' %(i) for i in list(ascii_uppercase)[0:max(len(np.unique(y_test)),len(np.unique(predictions)))]]
+        columns = [i for i in class_names]
     
     y_test = np.array(y_test)
     predictions = np.array(predictions)
