@@ -1,10 +1,11 @@
+
 # Mask R-CNN for Blowholes Detection and Recognition in PCBs
 
 This is an application and an extension of the [Mask R-CNN for Object Detection and Segmentation](https://github.com/matterport/Mask_RCNN) from matterport.
 
 The goal of this repository is to expose the Mask R-CNN model application for the recognition of blowholes in PCB images for my Final Degree Project.
 
-![](assets/detect_ex.JPG)
+![](assets/detection_ex.JPG)
 
 The repository includes:
 * Source code of Mask R-CNN built on FPN and ResNet101.
